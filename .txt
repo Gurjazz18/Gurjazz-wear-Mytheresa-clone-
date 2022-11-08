@@ -1,0 +1,7 @@
+name= Kailash chandra
+student_code=fw19_0148
+pprojct-code=sore-rate-9569
+website-name=https://www.mytheresa.com/
+
+  Budy-fw20_0510 =Gprasad Bhat
+  IA=Shailendra kumar
