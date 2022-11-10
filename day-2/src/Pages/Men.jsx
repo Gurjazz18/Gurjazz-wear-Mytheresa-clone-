@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import { MenData } from '../MenData';
 
 
 export default function Men() {
 
-
-    useEffect(()=>{
-          fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((json) => console.log(json));
-    },[])
+  
 
 
 
@@ -19,23 +15,44 @@ export default function Men() {
 
 
   return (
-     <div>
-        <Card style={{ width: '19rem' }}>
-      <Card.Img variant="top" src="https://img.mytheresa.com/420/475/95/jpeg/catalog/product/0e/P00734009.jpg"/>
-      <Card.Body>
-        <Card.Title>GABRIELA HEARST</Card.Title>
-       
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>€ 379</ListGroup.Item>
-        
-        
-      </ListGroup>
+         
+     <div className='menspart' >
 
-      <Button variant="primary">Add To Cart</Button>
-     
+          
+
+
+             
+{
+  MenData.map((elem)=>(
+      
+       
+   <Card key={elem.id}>
+  
+   <Card.Img variant="top" src={elem.image}/>
+
+   <Card.Body>
+       <Card.Title>{elem.title}</Card.Title>
+
+   </Card.Body>
+         <ListGroup className="list-group-flush">
+         
+         <ListGroup.Item>{elem.price}</ListGroup.Item>
+         <ListGroup.Item>{elem.discount}</ListGroup.Item>
+
+
+       </ListGroup>
+
+       <Button variant="primary">Add To Cart</Button>
+
      </Card>
+
+
+      ))
+   }
+
+        
+
+
      </div>
   )
 }

@@ -10,19 +10,23 @@ import {
   import Login from '../Pages/Login';
   import Cart from '../Pages/Cart';
   import Kids from '../Pages/Kids';
-  import Life from '../Pages/Life';
+  import Accessries from '../Pages/Accessries';
+import Home from '../Pages/Home';
+import Singlepage from '../Pages/Singlepage';
 
  export default function AllRoutes() {
 
   return (
     <Routes>
-  
+
+            <Route path="/" element={<Home />} />
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/kids" element={<Kids />} />
-          <Route path="/life" element={<Life />} />
+          <Route path="/acc" element={<Accessries />} />
+          <Route path="/acc/:id" element={<Singlepage />} />
          
   
           

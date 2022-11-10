@@ -30,17 +30,19 @@ function NavbarCom() {
           </Navbar.Brand>
     
 
-
+       
 
     
        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"  > 
+          <Nav.Link  href="/" >Home</Nav.Link>
             <Nav.Link  href="/women" >WOMEN</Nav.Link>
             <Nav.Link  href="/men" >MEN</Nav.Link>
             <Nav.Link  href="/kids" >KIDS</Nav.Link>
-            <Nav.Link href="/life" >LIFE</Nav.Link>
+            <Nav.Link href="/acc" >Aceeseries</Nav.Link>
+           
           
           </Nav>
           <Nav>
