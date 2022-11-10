@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <NavbarCom/>
    
-     <ControlledCarousel/>
+     
         
      <AllRoutes/>
         
