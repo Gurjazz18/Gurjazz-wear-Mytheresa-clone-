@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 
 
 import {Cartcontext} from "../Context/CartContext"
-import Stack from 'react-bootstrap/Stack';
+
 
 
 export default function Cart() {
