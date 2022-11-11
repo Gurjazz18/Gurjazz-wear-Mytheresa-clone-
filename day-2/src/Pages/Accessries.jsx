@@ -3,18 +3,24 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { useEffect,useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import Singlepage from './Singlepage';
+
+
 
 export default function Accessries() {
   const[data,setData]=useState([])
+
+  
+ 
+  
 
 
   useEffect(()=>{
         fetch(`https://dummyjson.com/products`)
           .then((res) => res.json()).then((res)=>{
             setData(res.products)
+
+            console.log(res.products)
           
           })
           
@@ -23,7 +29,7 @@ export default function Accessries() {
   },[])
 
 
-
+  
 
 
 
@@ -36,7 +42,7 @@ return (
 
            
          {
-             data?.map((elem)=>(
+             data && data?.map((elem)=>(
              
               
           <Card key={elem.id}>
@@ -49,10 +55,12 @@ return (
 
           </Card.Body>
                 <ListGroup className="list-group-flush">
-                <Link  to={`/acc/${elem.id}`}> know more</Link>
-                <ListGroup.Item></ListGroup.Item>
+               
+               
                 <ListGroup.Item>{elem.category}</ListGroup.Item>
                 <ListGroup.Item>{elem.price}</ListGroup.Item>
+
+               
 
 
               </ListGroup>
