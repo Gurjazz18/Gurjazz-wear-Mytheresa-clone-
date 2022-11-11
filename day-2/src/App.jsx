@@ -6,6 +6,8 @@ import ControlledCarousel from "./Components/Carousel"
 
 import AllRoutes from "./Components/AllRoutes"
 
+import SearchbyName from "./Pages/SearchbyName"
+
 
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
       <NavbarCom/>
    
      
-        
+        <SearchbyName/>
      <AllRoutes/>
         
         

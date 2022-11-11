@@ -9,11 +9,18 @@ import {
 
 } from "react-router-dom";
 
+import CartcontextProvider from "./Context/CartContext"
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <CartcontextProvider >
   <BrowserRouter>
+  
     <App />
+  
   </BrowserRouter>
+  </CartcontextProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

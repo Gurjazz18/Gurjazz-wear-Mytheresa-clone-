@@ -12,7 +12,7 @@ import {
   import Kids from '../Pages/Kids';
   import Accessries from '../Pages/Accessries';
 import Home from '../Pages/Home';
-import Singlepage from '../Pages/Singlepage';
+
 
  export default function AllRoutes() {
 
@@ -26,7 +26,8 @@ import Singlepage from '../Pages/Singlepage';
           <Route path="/cart" element={<Cart />} />
           <Route path="/kids" element={<Kids />} />
           <Route path="/acc" element={<Accessries />} />
-          <Route path="/acc/:id" element={<Singlepage />} />
+         
+          <Route path="/bag" element={<Cart />} />
          
   
           

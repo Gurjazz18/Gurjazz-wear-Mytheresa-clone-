@@ -36,18 +36,18 @@ function NavbarCom() {
        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto"  > 
-          <Nav.Link  href="/" >Home</Nav.Link>
-            <Nav.Link  href="/women" >WOMEN</Nav.Link>
-            <Nav.Link  href="/men" >MEN</Nav.Link>
-            <Nav.Link  href="/kids" >KIDS</Nav.Link>
-            <Nav.Link href="/acc" >Aceeseries</Nav.Link>
+          <Nav  className='me-auto' > 
+          <Nav.Link>  <Link to="/">HOME</Link></Nav.Link>
+            <Nav.Link><Link to="/women">WOMEN</Link></Nav.Link>
+            <Nav.Link><Link to="/men">MEN</Link></Nav.Link>
+            <Nav.Link><Link to="/kids">KIDS</Link></Nav.Link>
+            <Nav.Link><Link to="/acc">Accessries</Link></Nav.Link>
            
           
           </Nav>
-          <Nav>
-            <Nav.Link href="/login">LOGIN</Nav.Link>
-            <Nav.Link href="/bag"> <BsFillBagFill/> Shoping Bag</Nav.Link>
+            <Nav>
+            <Nav.Link ><Link to="/login">LOGIN</Link></Nav.Link>
+            <Nav.Link> <BsFillBagFill/><Link to="/bag">Shoping Bag</Link></Nav.Link>
            
           
           </Nav>
