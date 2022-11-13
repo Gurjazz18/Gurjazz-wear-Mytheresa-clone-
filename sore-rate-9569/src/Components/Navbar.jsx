@@ -41,7 +41,7 @@ function NavbarCom() {
             <Nav.Link><Link to="/women">WOMEN</Link></Nav.Link>
             <Nav.Link><Link to="/men">MEN</Link></Nav.Link>
             <Nav.Link><Link to="/kids">KIDS</Link></Nav.Link>
-            <Nav.Link><Link to="/acc">Accessries</Link></Nav.Link>
+            <Nav.Link><Link to="/acc">TOP ITEMS</Link></Nav.Link>
            
           
           </Nav>

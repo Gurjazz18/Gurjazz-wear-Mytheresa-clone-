@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 export default function Kids() {
 
@@ -84,7 +85,7 @@ export default function Kids() {
     
     
    
-
+  <Footer/>
    
     </>
   )

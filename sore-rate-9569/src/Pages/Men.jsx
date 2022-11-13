@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { MenData } from '../MenData';
 import ControlledCarousel from "../Components/Carousel"
-
+ import Footer from './Footer';
 
 export default function Men() {
 
@@ -31,8 +31,7 @@ export default function Men() {
      <div className='menspart' >
 
           
-
-
+   
              
 {
   MenData.map((elem)=>(
@@ -66,6 +65,8 @@ export default function Men() {
 
 
      </div>
+
+   <Footer/>
      </>
   )
 }
