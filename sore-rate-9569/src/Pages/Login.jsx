@@ -49,23 +49,25 @@ export default function Login() {
     })
     
   }
+const handlesuccess=()=>{
+  navigate("/")
+}
+ 
 
-  console.log(authState)
-
-  if(authState.isAuth){
-    navigate("/bag")
-  }
+  // if(authState.isAuth){
+  //   navigate("/")
+  // }
 
 
 const {email,password}=loginDetails
   return (
-    <div  className='Loginpagecss'>
-   <Form   onSubmit={handleSubmit}>
+  
+   <Form   onSubmit={handleSubmit}  style={{width:"50%",margin:"auto",marginTop:"70px"}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email"  onChange={handleLogin} name="email" value={email}  autoComplete="off"/>
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          We'll never share your Email with anyone else.
         </Form.Text>
       </Form.Group>
 
@@ -73,13 +75,16 @@ const {email,password}=loginDetails
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password"
         onChange={handleLogin} name="password" value={password}  autoComplete="off" />
+         <Form.Text className="text-muted">
+          We'll never share your Password with anyone else.
+        </Form.Text>
       </Form.Group>
       
-      <Button variant="secondary" type="submit">
+      <Button variant="secondary" type="submit" onClick={()=>handlesuccess()}>
         Submit
       </Button>
     </Form>
       
-    </div>
+   
   )
 }

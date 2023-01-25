@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
-
+import Table from 'react-bootstrap/Table';
 
 import {Cartcontext} from "../Context/CartContext"
 
 import { AuthContext } from '../Context/AuthContext'
+import DismissibleExample from './Toast';
 
 
 
@@ -14,61 +15,64 @@ export default function Cart() {
 
   const {state}=useContext(Cartcontext)
   
-  const{cart,qty,price}=state
-
- 
-      
+  let{cart,qty,price}=state
 
 
   
   return ( 
+    <div style={{display:"flex",gap:"210px",marginTop:"60px"}}>
+      <Table style={{width:"70%",border:"1px solid black"}} >
+      <thead>
+        <tr>
+          <th>Image</th>
+        
+          <th>Price</th>
+          <th>Name</th>
+        
+          
+        </tr>
+      </thead>
+      <tbody>
 
-
-    <>
-
-    
-    
-  
-   
-       
-
-     <div  className='TableCss'>
-
-    
-
-     {
      
-        cart.length>0?(
+
+        {
+     
+          cart.length>0&&
           cart.map((el)=>(
-            <div style={{display:"flex",flexDirection:"column",textAlign:"center",border:"1px solid red"}}> 
-            <img src={el.image[0]}  width="250px"/>
-              <p>{el.offerPrice}</p>
-              <p>{el.name}</p>
+         <tr > 
+         <td><img src={el.image[0]}  width="100px"/></td>
          
-             </div>
+           <td>{el.offerPrice}</td>
+           <td>{el.name}</td>
+          
+      
+          </tr>
 
-          ))
-         
+       ))
+      
 
-        ):"You Card is Empty!"
+     
 
 
-     }
+  }
        
-     </div>
+       </tbody>
+     </Table>
     
 
-      <div  className='qty12'>
-       <h1>  Total Price:{price}</h1>
-       <h1>  Total Quantity:{qty}</h1>
+    <div style={{width:"30%"}}>
+    <div>
+      <h1>Total price</h1>
+      <h1>{price}</h1>
+    </div>
       
-      </div>
+    <DismissibleExample/>
 
-       <div  style={{width:"13%",margin:"auto",marginTop:"20px"}}>
-       <Button onClick={()=>logoutUser()} size="lg"  variant='info'>Go back</Button>
-       </div>
+    </div>
 
-     </>
+     </div>
+
   )
 }
 

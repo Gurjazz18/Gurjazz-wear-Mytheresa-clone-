@@ -10,10 +10,10 @@ import {
   import Login from '../Pages/Login';
   import Cart from '../Pages/Cart';
   import Kids from '../Pages/Kids';
-  import Accessries from '../Pages/Accessries';
-import Home from '../Pages/Home';
+ 
+  import Home from '../Pages/Home';
 
-import PrivateRoute from './PrivateRoute';
+   import PrivateRoute from './PrivateRoute';
 
 
  export default function AllRoutes() {
@@ -27,13 +27,13 @@ import PrivateRoute from './PrivateRoute';
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/kids" element={<Kids />} />
-          <Route path="/acc" element={<Accessries />} />
+       
          
           <Route path="/bag" element={
 
-          <PrivateRoute>
+         
           <Cart />
-          </PrivateRoute>
+          
           
           }
            />

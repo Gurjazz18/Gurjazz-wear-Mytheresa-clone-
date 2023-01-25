@@ -6,6 +6,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
   import {Cartcontext} from "../Context/CartContext"
+  import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 import  {Data}  from "../Data"
@@ -13,6 +17,7 @@ import SearchbyName from './SearchbyName';
 import ControlledCarousel from "../Components/Carousel"
 
   import Footer from './Footer';
+import Example from './Tooltip';
 
 
 
@@ -47,82 +52,40 @@ export default function Home() {
   return (
 
 
-      <div  >
+    <Container >
 
-        
-
-          <ControlledCarousel/>
-        
-
-
-
-         <div  style={{marginTop:"20px"}}>
-         <SearchbyName  filterData={filterData}/>
-         </div>
-
-       
-
-         <div  className='menspart'>
-    
+    <Row>
     {
-     data&&data?.map((elem)=>(
-           
-            
-        <Card >
-       
-        <Card.Img variant="top" src={elem.image}  alt="img"/>
-   
+        data.map((elem)=>(
+
+        <Col sm={3}>
+        <Card>
+          <Card.Img variant="top" src={elem.image} width="200px" height="300px"/>
         <Card.Body>
-            <Card.Title>{elem.name}</Card.Title>
-
-        </Card.Body>
-
-              <ListGroup className="list-group-flush">
-
-              <ListGroup.Item>{elem.name}</ListGroup.Item>
-              <ListGroup.Item>{elem.offerPrice}</ListGroup.Item>
-              <ListGroup.Item>{elem.rating}</ListGroup.Item>
-
-              
+          <Card.Title>{elem.name}</Card.Title>
+         <Card.Text>
+         {elem.offerPrice}
+         {elem.rating}
+           </Card.Text>
+           <Button onClick={()=>dispatch({type:"addToCard",payload:elem})}>
+            ADD TO CARD
+           </Button>
+            
+            
+           
           
+           </Card.Body>
+          </Card>
+        </Col>
+          
+        ))
+      }
 
-
-            </ListGroup>
-
-
-            <Button variant="info"   onClick={()=>dispatch({type:"addToCard",payload:elem})}   >Add To Cart</Button>
-
-            </Card>
-       
-
-
-           ))
-        }
-
-       
-   
-    </div>
-
-       
-
-      
-         
-         
-       
-      
-   
-      
-    <hr/>
-    <div style={{marginTop:"630%"}}>
-    <Footer/>
-    </div>
-       
-       
+    </Row>
     
-    
-   
+     
+  </Container>
 
 
-     </div>
   )
 }

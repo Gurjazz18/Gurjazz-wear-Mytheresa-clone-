@@ -1,72 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
-import { MenData } from '../MenData';
-import ControlledCarousel from "../Components/Carousel"
- import Footer from './Footer';
+import React, { useContext, useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
+import { MenData } from "../MenData";
+import ControlledCarousel from "../Components/Carousel";
+import Footer from "./Footer";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Example from "./Tooltip";
+import { Cartcontext } from "../Context/CartContext";
 
 export default function Men() {
-
-  
-
-
-
-
-
+  const { dispatch } = useContext(Cartcontext);
 
   return (
+    <Container>
+      <Row sm={2}>
+        {MenData.map((elem) => (
+          <Col sm={3}>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={elem.image}
+                width="200px"
+                height="300px"
+              />
+              <Card.Body>
+                <Card.Title>{elem.title}</Card.Title>
+                <Card.Text>
+                  {elem.price}
+                  
+                </Card.Text>
+                <Card.Text>
+                {elem.discount}
+                 
+                </Card.Text>
 
-    <>
-      <ControlledCarousel/>
+                <Button
+                  onClick={() => dispatch({ type: "addToCard", payload: elem })}
+                >
+                  <Example />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
 
-      <div style={{display:"flex",justifyContent:"space-evenly",marginTop:"5%"}}>
-        <img src ="https://img.mytheresa.com/media/static/raw/cms/l/MW_HP_2022_CW45/BIG3/BIG_3_2x_20221107171209.jpg?imwidth=1180&imdensity=2" alt="img" width="600px"/>
-        <img src ="https://img.mytheresa.com/media/static/raw/cms/l/MW_HP_2022_CW45/BIG2/DESKTOP_2X_20221107170819.jpg?imwidth=1180&imdensity=2" alt="img" width="600px"/>
-
-        
-      </div>
-  
-         
-     <div className='menspart' >
-
-          
-   
-             
-{
-  MenData.map((elem)=>(
-      
-       
-   <Card key={elem.id}>
-  
-   <Card.Img variant="top" src={elem.image}/>
-
-   <Card.Body>
-       <Card.Title>{elem.title}</Card.Title>
-
-   </Card.Body>
-         <ListGroup className="list-group-flush">
-         
-         <ListGroup.Item>{elem.price}</ListGroup.Item>
-         <ListGroup.Item>{elem.discount}</ListGroup.Item>
-
-
-       </ListGroup>
-
-       <Button variant="primary">Add To Cart</Button>
-
-     </Card>
-
-
-      ))
-   }
-
-        
-
-
-     </div>
-
-   <Footer/>
-     </>
-  )
+    
+  );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { KidsData } from '../KidsData'
 
@@ -7,8 +7,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Example from "./Tooltip";
+import { Cartcontext } from "../Context/CartContext";
 
 export default function Kids() {
+  const { dispatch } = useContext(Cartcontext);
 
   const navigate=useNavigate()
 
@@ -41,51 +47,48 @@ export default function Kids() {
 
        
       </div>
-      <div>
-        <img src="./kid.jpeg"  alt="img"  width="100%"/>
-    </div>
+      
 
 
      
       
+    <Container>
+      <Row sm={2}>
+        {KidsData.map((elem) => (
+          <Col sm={3}>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={elem.image}
+                width="200px"
+                height="300px"
+              />
+              <Card.Body>
+                <Card.Title>{elem.title}</Card.Title>
+                <Card.Text>
+                  {elem.price}
+                  
+                </Card.Text>
+                <Card.Text>
+                {elem.discount}
+                 
+                </Card.Text>
 
-    <div  className='menspart'>
-     {
-      KidsData.map((elem)=>(
-      
-       
-   <Card key={elem.id}>
-  
-   <Card.Img variant="top" src={elem.image}/>
+                <Button
+                  onClick={() => dispatch({ type: "addToCard", payload: elem })}
+                >
+                  <Example />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
 
-   <Card.Body>
-       <Card.Title>{elem.title}</Card.Title>
-
-   </Card.Body>
-         <ListGroup className="list-group-flush">
-         
-         <ListGroup.Item>{elem.price}</ListGroup.Item>
-         <ListGroup.Item>{elem.discount}</ListGroup.Item>
-
-
-       </ListGroup>
-
-       <Button variant="primary">Add To Cart</Button>
-
-     </Card>
-
-
-      ))
-   }
-
-
-
-      
-    </div>
-    
     
    
-  <Footer/>
+  
    
     </>
   )
